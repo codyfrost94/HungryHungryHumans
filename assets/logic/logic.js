@@ -26,6 +26,8 @@
      const promise = auth.signInWithEmailAndPassword(email, pass);
      promise.catch(e => console.log(e.message));
 
+       
+
  });
 
  // Add signup event
@@ -43,7 +45,21 @@
      promise
          .catch(e => console.log(e.message));
 
- });
+        var user = firebase.auth();
+        console.log("uid "+ user.currentUser.uid);
+
+        firebase.database().ref('/Users/' + user.currentUser.uid).set({
+        'email': "blabla",
+        'address': "18440 hatteras st"
+
+
+
+
+        //  firebase.database.ref('/Users/' +firebase.auth().currentUser.uid).set({
+        // 'email': email,
+        // 'address': "18440 hatteras st"
+
+ })});
 
  btnLogout.addEventListener('click', e => {
      firebase.auth().signOut();
@@ -55,11 +71,52 @@
  firebase.auth().onAuthStateChanged(firebaseUser => {
 
      if (firebaseUser) {
-         console.log(firebaseUser);
+         console.log(firebaseUser.uid);
          btnLogout.classList.remove('hide');
      } else {
          console.log("not logged in");
          btnLogout.classList.remove('hide');
 
      }
+
+       pushedRef = firebase.database().ref().push({
+                 uid: firebaseUser.uid 
+             })
+              
+
  })
+
+
+// var email = txtEmail.val();
+//     var pass = txtPassword.val();
+//     var auth = firebase.auth();
+
+//     window.email = email;
+
+//     // sing up
+//    auth.createUserWithEmailAndPassword(email, pass).then(function(user){
+//      // create a new Node
+
+//     database.ref('/Users/' + user.uid).set({
+//         'email': email,
+//         'address': "18440 hatteras st"
+//     })
+//    });
+
+              
+
+ // var user = firebase.auth().currentUser;
+ // setTimeout(function() {
+ //     var user = firebase.auth();
+ //     console.log(user.currentUser)
+ //     if (user) {
+ //         uid = user.uid;
+ //         console.log(uid);
+ //         user.providerData.forEach(function(provider) {
+ //             providerUid = provider.uid;
+ //             email = provider.email;
+ //             console.log(providerUid);
+ //             console.log(email);
+ //         });
+ //     }
+ // }, 1000)
