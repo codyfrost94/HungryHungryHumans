@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://bootswatch.com/united/bootstrap.min.css" />
     <link rel="stylesheet" href="assets/style/style.css" />
     <script src="https://www.gstatic.com/firebasejs/4.4.0/firebase.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
@@ -14,25 +15,74 @@
 
 <body>
     <div class="container">
+        <br>
+        <input id="txtEmail" type="email" placeholder="Email">
+        <br>
+        <input id="txtPassword" type="password" placeholder="Password">
+        <br>
+        <button id="btnLogin" class="btn btn-action">Login</button>
+        <button id="btnSignUp" class="btn btn-secondary">Sign-up</button>
+        <button id="btnLogout" class="btn btn-action hide">Log Out</button>
+        <br>
+        <br>
+    </div>
+    <div class="container">
         <div class="row">
-            <div class="col-md-6">
-                <h4>What's In Your Pantry?</h4>
-                <form id="add-ingredient">
-                    <input type="text">
-                    <input type="submit" value="Save"> </form>
-                <div id="ingredient-list">
-                    <label class="custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input"> <span class="custom-control-indicator"></span> <span class="custom-control-description">Ingredient Item</span></label>
+            <div class="col-md-12">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">Your Ingredients</div>
+                    <div class="panel-body">
+                        <div class="col-md-6">
+                            <h4>What's In Your Pantry?</h4>
+                            <form id="add-ingredient">
+                                <input type="text">
+                                <input type="submit" value="Save"> </form>
+                            <br>
+                            <div id="ingredient-list">
+                                <label class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input"> <span class="custom-control-indicator"></span> <span class="custom-control-description">Ingredient Item</span></label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <h4>Diet Restrictions?</h4>
+                            <form id="add-restriction">
+                                <input type="text">
+                                <input type="submit" value="Save"> </form>
+                            <br>
+                            <div id="restriction-list">
+                                <label class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input"> <span class="custom-control-indicator"></span> <span class="custom-control-description">Restriction Item</span></label>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="col-md-6">
-                <h4>Diet Restrictions?</h4>
-                <form id="add-restriction">
-                    <input type="text">
-                    <input type="submit" value="Save"> </form>
-                <div id="restriction-list">
-                    <label class="custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input"> <span class="custom-control-indicator"></span> <span class="custom-control-description">Restriction Item</span></label>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">Your Recipes</div>
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <label for="formGroupExampleInput">Title</label>
+                            <input type="text" class="form-control" id="recipe-title" placeholder="Ramen with Egg"> </div>
+                        <div class="form-group">
+                            <label for="formGroupExampleInput">Cuisine</label>
+                            <input type="text" class="form-control" id="cuisine-type" placeholder="Italian, Mexican, Chinese"> </div>
+                        <div class="form-group">
+                            <label for="formGroupExampleInput">Ingredients</label>
+                            <input type="text" class="form-control" id="cuisine-type" placeholder="Noodles"> </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary" id="add-ingredient">Add Ingredient</button>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleTextarea">Instructions</label>
+                            <textarea class="form-control" id="instructions" rows="3"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary" id="add-recipe">Submit Recipe</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
