@@ -13,6 +13,8 @@
     <title></title>
 </head>
 
+<button type="button" class="btn btn-primary login">login</button>
+
 <body>
     <div class="container">
 			<div class="row">
@@ -21,8 +23,9 @@
 		<div class="container">
 		  <h1>What's In Your Pantry?</h1>
 
+
   <form id="add-ingredient">
-    <input type="text">
+    <input type="text" id="email">
     <input type="submit" value="Save">
   </form>
 
@@ -36,7 +39,7 @@
 				  <h1>Diet Restrictions?</h1>
 
   <form id="add-restriction">
-    <input type="text">
+    <input type="text" id="password">
     <input type="submit" value="Save">
   </form>
 
@@ -45,6 +48,40 @@
     </div>
 		</div>
 		</div>
+
+<div class="container">
+	<input id="txtEmail" type="email" placeholder="Email">
+
+	<input id="txtPassword" type="password" placeholder="Password">
+
+	<button id="btnLogin" class="btn btn-action">
+	Login
+</button>
+
+	<button id="btnSignUp" class="btn btn-secondary">
+	Sign-up
+</button>
+
+<button id="btnLogout" class="btn btn-action hide">
+	Log Out
+</button>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <script type="text/javascript" src="assets/logic/logic.js"></script>
 </body>
 
