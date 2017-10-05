@@ -45,17 +45,15 @@ $("#save-ingr-item").on("click", function(event) {
       	ingrArray.push(ingrInput);
       	console.log(ingrArray);
 
-      	$("#save-ingr-item").empty();
+      	$("#user-ingredient").val("");
 
 
 
-                firebase.database().ref("/users/" + "u8MFRDzoi0TppuJC0H5ZynccIR72").update({
-                  'item 1': "bla bla"
-
+                
                  
 
 
-            })
+            
 
       	//var checkbox = $('<input id="ingredient-checkbox" type="checkbox">');
 
