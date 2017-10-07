@@ -78,9 +78,10 @@
          btnLogout.classList.remove('hide');
 
      }
+        var uid = firebaseUser.uid;
+       pushedRef = firebase.database().ref('Users/' + uid).set({
+        ingrArray: "First Item"
 
-       pushedRef = firebase.database().ref().push({
-                 uid: firebaseUser.uid 
              })
               
 
