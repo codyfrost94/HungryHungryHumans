@@ -16,13 +16,13 @@
 <body>
     <div class="container">
         <br>
-        <input id="txtEmail" type="email" placeholder="Email">
+        <input id="txtEmail" type="email" placeholder="Email" class="m-2">
         <br>
-        <input id="txtPassword" type="password" placeholder="Password">
+        <input id="txtPassword" type="password" placeholder="Password" class="m-2">
         <br>
-        <button id="btnLogin" class="btn btn-action">Login</button>
-        <button id="btnSignUp" class="btn btn-secondary">Sign-up</button>
-        <button id="btnLogout" class="btn btn-action hide">Log Out</button>
+        <button id="btnLogin" class="btn btn-action m-2">Login</button>
+        <button id="btnSignUp" class="btn btn-secondary m-2">Sign-up</button>
+        <button id="btnLogout" class="btn btn-action hide m-2">Log Out</button>
         <br>
         <br>
     </div>
@@ -33,47 +33,37 @@
                     <div class="panel-heading">Your Ingredients</div>
                     <div class="panel-body">
                         <div class="col-md-6">
-                            <h4>What's In Your Pantry?</h4>
-                            <!-- add ingredient form -->
-                            <form id="add-ingredient">
-                                <input type="text" id="user-ingredient">
-                                <!-- add ingredient submit button -->
-                                <input type="submit" value="Save" id="save-ingr-item"> </form>
-                            <br>
-                            <!-- ingredient list div to populate -->
-                            <div id="ingredients">
-                                <ul id="ingredient-list">
-                                    <li><input id="ingredient-checkbox" type="checkbox">Ingredient Item</li>
-<!--                                 <label class="custom-control custom-checkbox"> -->
-                                    <!-- ingredient item checkbox -->
-<!--                                     <input type="checkbox" class="custom-control-input"> <span class="custom-control-indicator"></span> <span class="custom-control-description">Ingredient Item</span></label> -->
-                                    </ul>
+                            <div class="border-around">
+                                <h4>What's In Your Pantry?</h4>
+                                <form id="add-ingredient">
+                                    <input type="text" id="user-ingredient" class="mb-3">
+                                    <input type="submit" value="Save" id="save-ingr-item"> </form>
                                 <br>
-                                <!-- ingredient item delete button -->
-                                <input type="submit" value="Delete">
+                                <div id="ingredients">
+                                    <ul id="ingredient-list">
+                                        <!-- <li> <input id="ingredient-checkbox" type="checkbox">Ingredient Item</li>-->
+                                    </ul>
+                                    <br>
+                                    <input type="submit" value="Delete" class="delete-btn-1"> </div>
                             </div>
-                            <br>
-                            <br>
-                            <!-- search recipes button -->
-                            <button type="submit" class="btn btn-primary" id="add-recipe">Search Recipes</button>
                         </div>
                         <div class="col-md-6">
-                            <h4>Diet Restrictions?</h4>
-                            <!-- add restriction form -->
-                            <form id="add-restriction">
-                                <input type="text">
-                                <!-- add restriction submit button -->
-                                <input type="submit" value="Save"> </form>
-                            <br>
-                            <!-- restriction list div to populate -->
-                            <div id="restriction-list">
-                                <label class="custom-control custom-checkbox">
-                                    <!-- restriction item checkbox -->
-                                    <input type="checkbox" class="custom-control-input"> <span class="custom-control-indicator"></span> <span class="custom-control-description">Restriction Item</span></label>
+                            <div class="border-around">
+                                <h4>Diet Restrictions?</h4>
+                                <form id="add-restriction">
+                                    <input type="text" class="mb-3">
+                                    <input type="submit" value="Save"> </form>
                                 <br>
-                                <!-- restriction item delete button -->
-                                <input type="submit" value="Delete">
+                                <div id="restrictions">
+                                    <ul id="restriction-list">
+                                        <!-- <li> <input id="restriction-checkbox" type="checkbox">Restriction Item</li>-->
+                                    </ul>
+                                    <br>
+                                    <input type="submit" value="Delete" class="delete-btn-2"> </div>
                             </div>
+                        </div>
+                        <div class="col-md-12">
+                            <button type="submit" class="btn btn-primary mt-3" id="add-recipe">Search Recipes</button>
                         </div>
                     </div>
                 </div>
@@ -108,7 +98,6 @@
             </div>
         </div>
     </div>
-    <!--<script type="text/javascript" src="assets/logic/logic.js"></script>-->
     <script type="text/javascript" src="assets/logic/ingredients.js"></script>
 </body>
 

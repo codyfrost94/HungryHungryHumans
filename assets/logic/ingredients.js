@@ -1,3 +1,7 @@
+$(document).ready(function() {
+    $(".delete-btn-1").hide();
+    $(".delete-btn-2").hide();
+});
 // Initiialize firebase
 
  var config = {
@@ -30,6 +34,7 @@ $("#save-ingr-item").on("click", function(event) {
       // Get the to-do "value" from the textbox and store it a variable
       //var itemValue = $("#user-ingredient").val().trim();
       var ingrInput = $("#user-ingredient").val();
+	$(".delete-btn-1").show();
       //console.log(itemValue);
       //ingrInput.push(itemValue);
       console.log(ingrInput);
