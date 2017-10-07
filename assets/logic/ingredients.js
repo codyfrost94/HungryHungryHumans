@@ -12,7 +12,9 @@ $(document).ready(function() {
     $(".delete-btn-2").hide();
 });
 
+
 var database = firebase.database();
+
 
 firebase.auth().onAuthStateChanged((user) => {
       if (user) {
@@ -27,28 +29,29 @@ firebase.auth().onAuthStateChanged((user) => {
                 ingrArray = snapshot.val();
 
 
+
 //add ingredients to database
 
-//var ingrInput = $("#user-ingredient").val();
+var restrictArray = [];
 
-//create an array
+
+// ADD INGREDIENT LIST ITEMS
 
 $("#save-ingr-item").on("click", function(event) {
       // prevent form from submitting
       event.preventDefault();
 
       // Get the to-do "value" from the textbox and store it a variable
-      //var itemValue = $("#user-ingredient").val().trim();
       var ingrInput = $("#user-ingredient").val();
 	$(".delete-btn-1").show();
-      //console.log(itemValue);
-      //ingrInput.push(itemValue);
+	
       console.log(ingrInput);
+	
+	var dataArrayIngr = ingrArray;
+	
+	database.ref().push(dataArrayIngr);
 
-      //$("ingredient-list").empty();
-
-
-      //for (var i = 0; i < ingrInput.length; i++) {
+$("#user-ingredient").val("");
       	
             console.log(ingrInput);
             //add list items
@@ -86,6 +89,7 @@ $("#save-ingr-item").on("click", function(event) {
 
 
 
+
 // function reset() {
 //     firebase.database().ref('/Users/' + rM1).update({
 //             p1Button: "enable",
@@ -114,6 +118,35 @@ $("#save-ingr-item").on("click", function(event) {
               
 
 //  })
+
+      	});
+
+// ADD RESTRICTED ITEMS
+
+$("#save-rest-item").on("click", function(event) {
+      // prevent form from submitting
+      event.preventDefault();
+
+      // Get the to-do "value" from the textbox and store it a variable
+      var restInput = $("#user-restriction").val();
+	$(".delete-btn-2").show();
+	
+      console.log(restInput);
+	
+	var dataArrayRest = restrictArray;
+	
+	database.ref().push(dataArrayRest);
+
+$("#user-restriction").val("");
+      	
+      	console.log(restInput);
+      	//add list items
+      	var listItem = $("#restriction-list").append('<li> <input id="restriction-checkbox" type="checkbox">' + restInput);
+      	restrictArray.push(restInput);
+      	console.log(restrictArray);
+
+      	});
+
 
 
 
