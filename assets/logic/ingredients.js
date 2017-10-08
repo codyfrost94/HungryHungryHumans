@@ -12,35 +12,38 @@
      $(".delete-btn-2").hide();
  });
 
- var database = firebase.database();
-
- // firebase.auth().onAuthStateChanged((user) => {
- //     if (user) {
- //         console.log("Ingredients list " + user.uid);
- //         var UID = user.uid;
-
- //         var dataStuff = firebase.database().ref('Users/' + UID + '/ingrArray');
-
- //         dataStuff.on('value', function(snapshot) {
-
- //             //add ingredients to database
-
- //             var restrictArray = [];
- //             var ingrArray = [];
- //             ingrArray = snapshot.val();
-
- //                for ( var i = 0; i <= ingrArray.length; i++){
-
- //                 var listItem = $("#ingredient-list").append('<li><input id="ingredient-checkbox" type="checkbox">' + ingrArray[i]);
-
- //                 }})}});
 
 
+// Pull user ingredient list from database
+ function GetUserData() {
+
+                              firebase.auth().onAuthStateChanged((user) => 
+                              {
+                                    if (user) 
+                                    {
+                                    var UID = user.uid;
+                                    }
+                                          firebase.database().ref('Users/' + UID + '/ingrArray').on('value', function(snapshot) 
+                                          {
+
+                                          //add ingredients to database
+
+                                          var ingrArray = [];
+                                          ingrArray = snapshot.val();
+                                          
 
 
+                                                      for ( var i = 0; i <= ingrArray.length; i++)
+                                                      {
+                                                      var listItem = $("#ingredient-list").append('<li><input id="ingredient-checkbox" type="checkbox">' + ingrArray[i]);
+                                                      }
+                                          })
 
+                              })
 
+                        }
 
+        window.onload = GetUserData;      
 
 
 
@@ -54,11 +57,21 @@
                  var ingrInput = $("#user-ingredient").val();
                  $(".delete-btn-1").show();
 
-                 console.log(ingrInput);
+                 
+                  firebase.auth().onAuthStateChanged((user) => 
+                              {
+                                    if (user) 
+                                    {
+                                    var UID = user.uid;
+                                    }
+
+                 firebase.database().ref('Users/' + UID + '/ingrArray').on('value', function(snapshot) 
+                                          {
+
+                                          var ingrArray = [];
+                                          ingrArray = snapshot.val();
 
                  var dataArrayIngr = ingrArray;
-
-                 database.ref().push(dataArrayIngr);
 
                  $("#user-ingredient").val("");
 
@@ -85,7 +98,9 @@
                      }
                  })
              })
+})
 
+            })
       
  
  

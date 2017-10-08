@@ -80,7 +80,7 @@
      }
         var uid = firebaseUser.uid;
        pushedRef = firebase.database().ref('Users/' + uid).set({
-        ingrArray: "First Item"
+        ingrArray: ["First Item"]
 
              })
               
