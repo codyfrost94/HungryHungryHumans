@@ -119,7 +119,7 @@ $("#user-ingredient").val("");
 
 //  })
 
-      	});
+      	// });
 
 // ADD RESTRICTED ITEMS
 
