@@ -26,7 +26,7 @@
      const promise = auth.signInWithEmailAndPassword(email, pass);
      promise.catch(e => console.log(e.message));
 
-       
+
 
  });
 
@@ -45,36 +45,55 @@
      promise
          .catch(e => console.log(e.message));
 
-        var user = firebase.auth();
-        console.log("uid "+ user.currentUser.uid);
+     var user = firebase.auth();
+     console.log("uid " + user.currentUser.uid);
 
-        firebase.database().ref('/Users/' + user.currentUser.uid).set({
-        'email': "blabla",
-        'address': "18440 hatteras st"
-
-
+     firebase.database().ref('/Users/' + user.currentUser.uid).set({
+         'email': "blabla",
+         'address': "18440 hatteras st"
 
 
-        //  firebase.database.ref('/Users/' +firebase.auth().currentUser.uid).set({
-        // 'email': email,
-        // 'address': "18440 hatteras st"
 
- })});
+
+         //  firebase.database.ref('/Users/' +firebase.auth().currentUser.uid).set({
+         // 'email': email,
+         // 'address': "18440 hatteras st"
+
+     })
+ });
 
  btnLogout.addEventListener('click', e => {
      firebase.auth().signOut();
 
  });
 
-var user = {}
+ var user = {}
  // Add a realtime Listener
 
  firebase.auth().onAuthStateChanged(firebaseUser => {
 
      if (firebaseUser) {
-        firebase.database().ref('Users/' + firebaseUser.uid + '/ingrArray').on('value', function(snapshot) {  
-            console.log(snapshot.val())
-            user = snapshot.val();
+         firebase.database().ref('Users/' + firebaseUser.uid + '/ingrArray').on('value', function(snapshot) {
+             console.log(snapshot.val())
+             user = snapshot.val();
+
+             $(function() {
+                 $(".draggable").draggable({
+                     grid: [10, 10]
+                 });
+                 $(".droppable").droppable({
+                     drop: function(event, ui) {
+                         $(this).height(function(index, height) {
+                             return (height + 40);
+                         });
+                         //          .addClass( "ui-state-highlight" )
+                         //          .find( "p" )
+                         //            .html( "Dropped!" );
+                     }
+                 });
+             });
+
+
          })
 
          btnLogout.classList.remove('hide');
@@ -83,48 +102,48 @@ var user = {}
          btnLogout.classList.remove('hide');
 
      }
-        var uid = firebaseUser.uid;
-       pushedRef = firebase.database().ref('Users/' + uid).set({
-        ingrArray: ["First Item"]
+     var uid = firebaseUser.uid;
+     pushedRef = firebase.database().ref('Users/' + uid).set({
+         ingrArray: ["First Item"]
 
-             })
-              
+     })
+
 
  })
 
-function renderUserIngredients(ingrArray) {
-    $().
+ function renderUserIngredients(ingrArray) {
+     $().
 
-// var email = txtEmail.val();
-//     var pass = txtPassword.val();
-//     var auth = firebase.auth();
+     // var email = txtEmail.val();
+     //     var pass = txtPassword.val();
+     //     var auth = firebase.auth();
 
-//     window.email = email;
+     //     window.email = email;
 
-//     // sing up
-//    auth.createUserWithEmailAndPassword(email, pass).then(function(user){
-//      // create a new Node
+     //     // sing up
+     //    auth.createUserWithEmailAndPassword(email, pass).then(function(user){
+     //      // create a new Node
 
-//     database.ref('/Users/' + user.uid).set({
-//         'email': email,
-//         'address': "18440 hatteras st"
-//     })
-//    });
+     //     database.ref('/Users/' + user.uid).set({
+     //         'email': email,
+     //         'address': "18440 hatteras st"
+     //     })
+     //    });
 
-              
 
- // var user = firebase.auth().currentUser;
- // setTimeout(function() {
- //     var user = firebase.auth();
- //     console.log(user.currentUser)
- //     if (user) {
- //         uid = user.uid;
- //         console.log(uid);
- //         user.providerData.forEach(function(provider) {
- //             providerUid = provider.uid;
- //             email = provider.email;
- //             console.log(providerUid);
- //             console.log(email);
- //         });
- //     }
- // }, 1000)
+
+     // var user = firebase.auth().currentUser;
+     // setTimeout(function() {
+     //     var user = firebase.auth();
+     //     console.log(user.currentUser)
+     //     if (user) {
+     //         uid = user.uid;
+     //         console.log(uid);
+     //         user.providerData.forEach(function(provider) {
+     //             providerUid = provider.uid;
+     //             email = provider.email;
+     //             console.log(providerUid);
+     //             console.log(email);
+     //         });
+     //     }
+     // }, 1000)
