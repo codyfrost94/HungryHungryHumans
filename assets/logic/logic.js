@@ -77,6 +77,11 @@
              console.log(snapshot.val())
              user = snapshot.val();
 
+             console.log("I am logged in now");
+
+             btnLogout.classList.remove('hide');
+
+
              $(function() {
                  $(".draggable").draggable({
                      grid: [10, 10]
@@ -89,18 +94,28 @@
                          //          .addClass( "ui-state-highlight" )
                          //          .find( "p" )
                          //            .html( "Dropped!" );
-                     }
-                 });
-             });
+                       }
+                    });
+                  });
+
+})
 
 
-         })
 
          btnLogout.classList.remove('hide');
      } else {
          console.log("not logged in");
          btnLogout.classList.remove('hide');
 
+
+         $(function() {
+                 $(".draggable").draggable( "disable")
+                     
+                         //          .addClass( "ui-state-highlight" )
+                         //          .find( "p" )
+                         //            .html( "Dropped!" );
+                       })
+              
      }
      var uid = firebaseUser.uid;
      pushedRef = firebase.database().ref('Users/' + uid).set({
@@ -110,40 +125,3 @@
 
 
  })
-
- function renderUserIngredients(ingrArray) {
-     $().
-
-     // var email = txtEmail.val();
-     //     var pass = txtPassword.val();
-     //     var auth = firebase.auth();
-
-     //     window.email = email;
-
-     //     // sing up
-     //    auth.createUserWithEmailAndPassword(email, pass).then(function(user){
-     //      // create a new Node
-
-     //     database.ref('/Users/' + user.uid).set({
-     //         'email': email,
-     //         'address': "18440 hatteras st"
-     //     })
-     //    });
-
-
-
-     // var user = firebase.auth().currentUser;
-     // setTimeout(function() {
-     //     var user = firebase.auth();
-     //     console.log(user.currentUser)
-     //     if (user) {
-     //         uid = user.uid;
-     //         console.log(uid);
-     //         user.providerData.forEach(function(provider) {
-     //             providerUid = provider.uid;
-     //             email = provider.email;
-     //             console.log(providerUid);
-     //             console.log(email);
-     //         });
-     //     }
-     // }, 1000)
