@@ -66,12 +66,17 @@
 
  });
 
+var user = {}
  // Add a realtime Listener
 
  firebase.auth().onAuthStateChanged(firebaseUser => {
 
      if (firebaseUser) {
-         console.log(firebaseUser.uid);
+        firebase.database().ref('Users/' + firebaseUser.uid + '/ingrArray').on('value', function(snapshot) {  
+            console.log(snapshot.val())
+            user = snapshot.val();
+         })
+
          btnLogout.classList.remove('hide');
      } else {
          console.log("not logged in");
@@ -87,6 +92,8 @@
 
  })
 
+function renderUserIngredients(ingrArray) {
+    $().
 
 // var email = txtEmail.val();
 //     var pass = txtPassword.val();
