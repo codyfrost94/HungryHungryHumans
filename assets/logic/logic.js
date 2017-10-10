@@ -84,8 +84,8 @@
 
              $(function() {
                  $(".draggable").draggable({
-                     grid: [10, 10]
-                     revert: "invalid",
+                     grid: [10, 10],
+                     revert: "invalid"
                  });
                  $(".droppable").droppable({
                      drop: function(event, ui) {
