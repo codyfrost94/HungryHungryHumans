@@ -81,23 +81,31 @@
 
              btnLogout.classList.remove('hide');
 
-
-             $(function() {
-                 $(".draggable").draggable({
-                     grid: [10, 10],
-                     revert: "invalid"
-                 });
-                 $(".droppable").droppable({
-                     drop: function(event, ui) {
-                         $(this).height(function(index, height) {
-                             return (height + 40);
-                         });
-                         //          .addClass( "ui-state-highlight" )
-                         //          .find( "p" )
-                         //            .html( "Dropped!" );
-                       }
-                    });
-                  });
+//DRAGGABLE STUFF + ARRAY/////////////////////////////////////////////////////////
+ $(function() {
+     $(".draggable").draggable({
+         revert: "invalid"
+     });
+     
+	 var searchableIngr = [];
+     
+	 $(".list-item").one("mouseup", function(event) {
+         var text = $(this).text();
+         searchableIngr.push(text);
+         console.log(searchableIngr);
+		 $(".droppable").append('<p class="list-item">' + text + '</p>');
+     });
+     
+	 $(".droppable").droppable({
+         drop: function(event, ui) {
+             ui.draggable.remove();
+             $(this).height(function(index, height) {
+                 return (height + 30);
+             });
+         }
+     });
+ });
+//DRAGGABLE STUFF + ARRAY/////////////////////////////////////////////////////////
 
 })
 
