@@ -1,5 +1,5 @@
 body {
-    background-image: url(../images/hhh-bkgd-1.png);
+    background-image: url(../images/hhh-bkgd-2.png);
     background-repeat: no-repeat;
     background-color: black;
 }
@@ -15,7 +15,7 @@ h1 {
 }
 
 h5 {
-    color: #9f9f9f;
+    color: #000000;
 }
 
 .container {
@@ -28,12 +28,16 @@ h5 {
 }
 
 .panel-body {
-    background: black;
+    background: lightgrey;
 	
 }
 
 .panel-primary > .panel-heading {
-  background-color: #2f2f2f;
+  background-color: #767676;
+}
+
+label {
+	color: black;
 }
 
 .login-div {
@@ -46,7 +50,7 @@ button {
 }
 
 .btn-primary {
-	background: #310f0f;
+	background: #ff6060;
 }
 
 ul {
@@ -77,7 +81,7 @@ li {
 
 .border-around {
     padding: 10px;
-    background-color: #191919;
+    background-color: #a8a8a8;
     border-radius: 8px;
 }
 
