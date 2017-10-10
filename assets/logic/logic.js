@@ -92,8 +92,8 @@ var user = {}
 
  })
 
-function renderUserIngredients(ingrArray) {
-    $().
+// function renderUserIngredients(ingrArray) {
+//     $().
 
 // var email = txtEmail.val();
 //     var pass = txtPassword.val();
