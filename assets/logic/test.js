@@ -15,118 +15,179 @@
  var tempIngr = [];
 
  $("#add-recipe-ingredient").on("click", function(event) {
-    event.preventDefault();
+     event.preventDefault();
 
-    tempIngr.push($("#recipe-ingredients").val().trim());
-    $("#recipe-ingredients").val("");
-    console.log(tempIngr);
+     tempIngr.push($("#recipe-ingredients").val().trim());
+     $("#recipe-ingredients").val("");
+     console.log(tempIngr);
 
-	});
+ });
 
 
+ function addRecipe() {
+     
+         event.preventDefault();
+
+         var recipeName = $("#recipe-title").val().trim();
+         var recipeInstructions = $("#instructions").val().trim();
+         var recipeIngredients = tempIngr
+         var recipeCuisine = $("#cuisine-type").val().trim();
+
+         var newRecipe = {
+             name: recipeName,
+             cuisine: recipeCuisine,
+             ingredients: recipeIngredients,
+             instructions: recipeInstructions,
+         }
+         
+         firebase.database().ref('/Recipes/').push(newRecipe);
+         
+         $("#recipe-title").val("");
+         $("#instructions").val("");
+         tempIngr = []
+         $("#cuisine-type").val("");
+
+
+
+         console.log(newRecipe);
+     }
+
+ 
  $("#add-recipe2").on("click", function(event) {
-    event.preventDefault();
+ 	
+ 	addRecipe();
 
-	var recipeName = $("#recipe-title").val().trim();
-    var recipeInstructions = $("#instructions").val().trim();
-    var recipeIngredients = tempIngr
-    var recipeCuisine = $("#cuisine-type").val().trim();
-
-    var newRecipe = {
-    	name: recipeName,
-    	cuisine: recipeCuisine,
-    	ingredients:recipeIngredients,
-    	instructions:recipeInstructions,
-    }
-
-    $("#recipe-title").val("");
-    $("#instructions").val("");
-    tempIngr = []
-    $("#cuisine-type").val("");
+ });
 
 
 
-    console.log(newRecipe);
-});
+ // var sampleObjectJSON = {
+
+ // "chickenNoodleSoup1": {
+ //     name: "Chicken Noodle Soup",
+ //     instructions: "Classis soul food with Chicken, noodles, and vegetables in a hearty broth",
+ //     ingredientsMain: ["Chicken", "Pasta", "Broth", "Vegetables"]
+ //     cookTimeMinutes: 5
+ // }
+
+ // "chickenNoodleSoup2": {
+ //     name: "Chicken Noodle Soup",
+ //     instructions: "Classis soul food with Chicken, noodles, and vegetables in a hearty broth",
+ //     ingredientsMain: ["Chicken", "Pasta", "Broth", "Vegetables"]
+ //     cookTimeMinutes: 10
+ // }
+
+ // "chickenNoodleSoup3": {
+ //     name: "Chicken Noodle Soup",
+ //     instructions: "Classis soul food with Chicken, noodles, and vegetables in a hearty broth",
+ //     ingredientsMain: ["Chicken", "Pasta", "Broth", "Vegetables"]
+ //     cookTimeMinutes: 15
+ // }
+
+ // "chickenNoodleSoup4": {
+ //     name: "Chicken Noodle Soup",
+ //     instructions: "Classis soul food with Chicken, noodles, and vegetables in a hearty broth",
+ //     ingredientsMain: ["Chicken", "Pasta", "Broth", "Vegetables"]
+ //     cookTimeMinutes: 20
+ // }
+
+ // "chickenNoodleSoup5": {
+ //     name: "Chicken Noodle Soup",
+ //     instructions: "Classis soul food with Chicken, noodles, and vegetables in a hearty broth",
+ //     ingredientsMain: ["Chicken", "Pasta", "Broth", "Vegetables"]
+ //     cookTimeMinutes: 25
+ // }
+
+ // "chickenNoodleSoup6": {
+ //     name: "Chicken Noodle Soup",
+ //     instructions: "Classis soul food with Chicken, noodles, and vegetables in a hearty broth",
+ //     ingredientsMain: ["Chicken", "Pasta", "Broth", "Vegetables"]
+ //     cookTimeMinutes: 30
+ // }
+
+ // "chickenNoodleSoup7": {
+ //     name: "Chicken Noodle Soup",
+ //     instructions: "Classis soul food with Chicken, noodles, and vegetables in a hearty broth",
+ //     ingredientsMain: ["Chicken", "Pasta", "Broth", "Vegetables"]
+ //     cookTimeMinutes: 35
+ // }
+
+ // "chickenNoodleSoup8": {
+ //     name: "Chicken Noodle Soup",
+ //     instructions: "Classis soul food with Chicken, noodles, and vegetables in a hearty broth",
+ //     ingredientsMain: ["Chicken", "Pasta", "Broth", "Vegetables"]
+ //     cookTimeMinutes: 40
+ // }
+
+ // "chickenNoodleSoup9": {
+ //     name: "Chicken Noodle Soup",
+ //     instructions: "Classis soul food with Chicken, noodles, and vegetables in a hearty broth",
+ //     ingredientsMain: ["Chicken", "Pasta", "Broth", "Vegetables"]
+ //     cookTimeMinutes: 45
+ // }
+
+ // "chickenNoodleSoup10": {
+ //     name: "Chicken Noodle Soup",
+ //     instructions: "Classis soul food with Chicken, noodles, and vegetables in a hearty broth",
+ //     ingredientsMain: ["Chicken", "Pasta", "Broth", "Vegetables"]
+ //     cookTimeMinutes: 50
+ // }
+
+ // }
+
+
+ var sampleIngrJSON = {
+
+     "123456789": {
+         name: "Noodles",
+         otherProp: "Yes",
+     }
+ }
+
+ var sampleIngrJSON2 = {
+
+     "ID": {
+         name: "Noodles",
+         otherProp: "Yes",
+     }
+ }
 
 
 
-// var sampleObjectJSON = {
+ var otherIngrJSON = [
 
-// "chickenNoodleSoup1": {
-//     name: "Chicken Noodle Soup",
-//     instructions: "Classis soul food with Chicken, noodles, and vegetables in a hearty broth",
-//     ingredientsMain: ["Chicken", "Pasta", "Broth", "Vegetables"]
-//     cookTimeMinutes: 5
-// }
+     {
+         name: "Noodles"
 
-// "chickenNoodleSoup2": {
-//     name: "Chicken Noodle Soup",
-//     instructions: "Classis soul food with Chicken, noodles, and vegetables in a hearty broth",
-//     ingredientsMain: ["Chicken", "Pasta", "Broth", "Vegetables"]
-//     cookTimeMinutes: 10
-// }
+     },
+     {
+         name: "Eggs"
 
-// "chickenNoodleSoup3": {
-//     name: "Chicken Noodle Soup",
-//     instructions: "Classis soul food with Chicken, noodles, and vegetables in a hearty broth",
-//     ingredientsMain: ["Chicken", "Pasta", "Broth", "Vegetables"]
-//     cookTimeMinutes: 15
-// }
+     },
+     {
+         name: "Butter"
 
-// "chickenNoodleSoup4": {
-//     name: "Chicken Noodle Soup",
-//     instructions: "Classis soul food with Chicken, noodles, and vegetables in a hearty broth",
-//     ingredientsMain: ["Chicken", "Pasta", "Broth", "Vegetables"]
-//     cookTimeMinutes: 20
-// }
+     },
+     {
+         name: "Bread"
 
-// "chickenNoodleSoup5": {
-//     name: "Chicken Noodle Soup",
-//     instructions: "Classis soul food with Chicken, noodles, and vegetables in a hearty broth",
-//     ingredientsMain: ["Chicken", "Pasta", "Broth", "Vegetables"]
-//     cookTimeMinutes: 25
-// }
+     },
+     {
+         name: "Hot Sauce"
 
-// "chickenNoodleSoup6": {
-//     name: "Chicken Noodle Soup",
-//     instructions: "Classis soul food with Chicken, noodles, and vegetables in a hearty broth",
-//     ingredientsMain: ["Chicken", "Pasta", "Broth", "Vegetables"]
-//     cookTimeMinutes: 30
-// }
-
-// "chickenNoodleSoup7": {
-//     name: "Chicken Noodle Soup",
-//     instructions: "Classis soul food with Chicken, noodles, and vegetables in a hearty broth",
-//     ingredientsMain: ["Chicken", "Pasta", "Broth", "Vegetables"]
-//     cookTimeMinutes: 35
-// }
-
-// "chickenNoodleSoup8": {
-//     name: "Chicken Noodle Soup",
-//     instructions: "Classis soul food with Chicken, noodles, and vegetables in a hearty broth",
-//     ingredientsMain: ["Chicken", "Pasta", "Broth", "Vegetables"]
-//     cookTimeMinutes: 40
-// }
-
-// "chickenNoodleSoup9": {
-//     name: "Chicken Noodle Soup",
-//     instructions: "Classis soul food with Chicken, noodles, and vegetables in a hearty broth",
-//     ingredientsMain: ["Chicken", "Pasta", "Broth", "Vegetables"]
-//     cookTimeMinutes: 45
-// }
-
-// "chickenNoodleSoup10": {
-//     name: "Chicken Noodle Soup",
-//     instructions: "Classis soul food with Chicken, noodles, and vegetables in a hearty broth",
-//     ingredientsMain: ["Chicken", "Pasta", "Broth", "Vegetables"]
-//     cookTimeMinutes: 50
-// }
-
-// }
+     },
+ ]
 
 
+ function addAllIngredients(ingredients) {
+     let ref = firebase.database().ref('ingredients')
+     ref.remove(function() {
+         for (var i = 0; i < ingredients.length; i++) {
+             firebase.database().ref('ingredients').push(ingredients[i])
+         }
+     })
 
 
+ }
 
-
+ addAllIngredients(otherIngrJSON)

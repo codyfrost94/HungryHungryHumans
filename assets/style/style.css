@@ -1,20 +1,90 @@
-ul {
-	list-style-type: none;
+body {
+    background-image: url(../images/hhh-bkgd-2.png);
+    background-repeat: no-repeat;
+    background-color: black;
 }
 
-#ingredient-checkbox, #restriction-checkbox {
-	position: relative;
-	top: 2px;
-	margin-right: 10px;
+h1 {
+    font-family: 'Poppins';
+    font-size: 3vw;
+    color: black;
+	font-weight: 700;
+    background: linear-gradient(to left, transparent, white);
+    width: 120%;
+    padding-left: 5px;
+}
+
+h5 {
+    color: #000000;
+}
+
+.container {
+    width: 70%;
+}
+
+.panel {
+    opacity: .9;
+	border-color: #363636;
+}
+
+.panel-body {
+    background: lightgrey;
+	
+}
+
+.panel-primary > .panel-heading {
+  background-color: #767676;
+}
+
+label {
+	color: black;
+}
+
+.login-div {
+    float: right;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+button {
+    background-color: #2f2f2f;
+}
+
+.btn-primary {
+	background: #ff6060;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.list-item {
+    font-family: 'Rock Salt';
+    font-size: 18px;
+    background: linear-gradient(to left, transparent, white);
+    color: black;
+    line-height: 24px;
+    margin: 5px;
+    width: 75%;
+}
+
+#ingredient-checkbox,
+#restriction-checkbox {
+    position: relative;
+    top: 2px;
+    margin-right: 10px;
 }
 
 li {
-	position: relative;
-	left: -40px;
+    position: relative;
+    left: -40px;
 }
 
-.border-around{
-	padding: 10px;
-background-color: #e6e6e6;
-	border-radius: 8px;
+.border-around {
+    padding: 10px;
+    background-color: #a8a8a8;
+    border-radius: 8px;
+}
+
+.droppable {
+    height: 100px;
 }
