@@ -77,6 +77,11 @@
              console.log(snapshot.val())
              user = snapshot.val();
 
+             console.log("I am logged in now");
+
+             btnLogout.classList.remove('hide');
+
+
              $(function() {
                  $(".draggable").draggable({
                      grid: [10, 10]
@@ -89,18 +94,28 @@
                          //          .addClass( "ui-state-highlight" )
                          //          .find( "p" )
                          //            .html( "Dropped!" );
-                     }
-                 });
-             });
+                       }
+                    });
+                  });
+
+})
 
 
-         })
 
          btnLogout.classList.remove('hide');
      } else {
          console.log("not logged in");
          btnLogout.classList.remove('hide');
 
+
+         $(function() {
+                 $(".draggable").draggable( "disable")
+                     
+                         //          .addClass( "ui-state-highlight" )
+                         //          .find( "p" )
+                         //            .html( "Dropped!" );
+                       })
+              
      }
      var uid = firebaseUser.uid;
      pushedRef = firebase.database().ref('Users/' + uid).set({
