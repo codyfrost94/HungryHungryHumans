@@ -43,9 +43,8 @@
 
      // Sign in
      const promise = auth.createUserWithEmailAndPassword(email, pass);
-     promise
-         .catch(e => console.log(e.message));
-         .catch(e => alert(e.message));
+       promise.catch(e => console.log(e.message));
+       promise.catch(e => alert(e.message));
 
      var user = firebase.auth();
      console.log("uid " + user.currentUser.uid);
@@ -81,9 +80,12 @@
 
              console.log("I am logged in now");
 
-             btnLogout.classList.remove('hide');
+             $("#btnLogin").addClass('hide');
+             $("#btnSignUp").addClass('hide');
+             $("#btnLogout").removeClass('hide');
 
 
+             //enables drag and drop only when logged-in
              $(function() {
                  $(".draggable").draggable({
                      grid: [10, 10],
@@ -100,6 +102,9 @@
                        }
                     });
                   });
+
+
+
 
 })
 
