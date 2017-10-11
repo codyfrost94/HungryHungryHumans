@@ -80,8 +80,13 @@
 
              console.log("I am logged in now");
 
+             // Disableing login & sign-up button as well as log-in forms when signed-in
              $("#btnLogin").addClass('hide');
              $("#btnSignUp").addClass('hide');
+             $("#txtEmail").addClass('hide');
+             $("#txtPassword").addClass('hide');
+
+             // enabling logout button when signed-in
              $("#btnLogout").removeClass('hide');
 
 
@@ -114,6 +119,16 @@
      } else {
          console.log("not logged in");
          btnLogout.classList.remove('hide');
+
+
+          // Enabling login & sign-up button as well as log-in forms when signed-out
+             $("#btnLogin").removeClass('hide');
+             $("#btnSignUp").removeClass('hide');
+             $("#txtEmail").removeClass('hide');
+             $("#txtPassword").removeClass('hide');
+
+             // disabling logout button when signed-in
+             $("#btnLogout").addClass('hide');
 
 
          $(function() {
