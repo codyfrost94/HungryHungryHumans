@@ -75,7 +75,7 @@
 
      if (firebaseUser) {
          firebase.database().ref('Users/' + firebaseUser.uid + '/ingrArray').on('value', function(snapshot) {
-             console.log(snapshot.val())
+             console.log("user" + snapshot.val())
              user = snapshot.val();
 
              console.log("I am logged in now");
@@ -89,6 +89,8 @@
              // enabling logout button when signed-in
              $("#btnLogout").removeClass('hide');
 
+             // adding message "Welcome user x" when user is logged-in
+             $("#userName").removeClass('hide');
 
              //enables drag and drop only when logged-in
              $(function() {
@@ -129,6 +131,9 @@
 
              // disabling logout button when signed-in
              $("#btnLogout").addClass('hide');
+
+            // Disabling message "Welcome user x" when user is logged-in
+             $("#userName").addClass('hide');
 
 
          $(function() {
