@@ -25,6 +25,7 @@
      // Sign in
      const promise = auth.signInWithEmailAndPassword(email, pass);
      promise.catch(e => console.log(e.message));
+     promise.catch(e => alert(e.message));
 
 
 
@@ -44,6 +45,7 @@
      const promise = auth.createUserWithEmailAndPassword(email, pass);
      promise
          .catch(e => console.log(e.message));
+         .catch(e => alert(e.message));
 
      var user = firebase.auth();
      console.log("uid " + user.currentUser.uid);
