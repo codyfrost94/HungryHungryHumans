@@ -44,20 +44,62 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="panel panel-primary">
-                    <div class="panel-heading">Your Ingredients</div>
+                    <div class="panel-heading">Find a recipe!</div>
                     <div class="panel-body">
-                        <div class="col-md">
+                        <div class="form-group">
+                            <label for="formGroupExampleInput">Title</label>
+                            <input type="text" class="form-control new-recipe-input" id="recipe-title" placeholder="Ramen with Egg"> </div>
+                        <div class="form-group">
+                            <label for="formGroupExampleInput">Cuisine</label>
+                            <input type="text" class="form-control new-recipe-input" id="cuisine-type" placeholder="Italian, Mexican, Chinese"> </div>
+                        <div class="form-group">
+                            <label for="formGroupExampleInput">Ingredients</label><div class="col-md">
                             <div class="border-around droppable">
                                 <h5>What's In Your Pantry:</h5>
                                 <!-- <form id="add-ingredient"> <input type="text" id="user-ingredient" class="mb-3"> <input type="submit" value="Save" id="save-ingr-item"> </form> <br>-->
                                 <div id="ingredients">
                                     <ul id="ingredient-list"></ul>
                                     <br>
-                                     </div>
+                                </div>
                             </div>
+                        </div>                        
                         </div>
+                        
+                        
+                        
                         <div class="col-md-12">
                             <button type="submit" class="btn btn-primary mt-3" id="add-recipe">Search Recipes</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-primary">
+                    <div class="panel-heading">Create a Recipe!</div>
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <label for="formGroupExampleInput">Title</label>
+                            <input type="text" class="form-control new-recipe-input" id="recipe-title" placeholder="Ramen with Egg"> </div>
+                        <div class="form-group">
+                            <label for="formGroupExampleInput">Cuisine</label>
+                            <input type="text" class="form-control new-recipe-input" id="cuisine-type" placeholder="Italian, Mexican, Chinese"> </div>
+                        <div class="form-group">
+                            <label for="formGroupExampleInput">Ingredients</label>
+                            <input type="text" class="form-control new-recipe-input" id="recipe-ingredients" placeholder="Noodles"> </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary" id="add-recipe-ingredient">Add Ingredient</button>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleTextarea">Instructions</label>
+                            <div class="border-around droppable">
+                                <h5>What's In Your Pantry:</h5>
+                                <!-- <form id="add-ingredient"> <input type="text" id="user-ingredient" class="mb-3"> <input type="submit" value="Save" id="save-ingr-item"> </form> <br>-->
+                                <div id="ingredients">
+                                    <ul id="ingredient-list"></ul>
+                                    <br>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary" id="add-recipe2">Submit Recipe</button>
                         </div>
                     </div>
                 </div>
@@ -76,40 +118,11 @@
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-6">
-                <div class="panel panel-primary">
-                    <div class="panel-heading">Your Recipes</div>
-                    <div class="panel-body">
-                        <div class="form-group">
-                            <label for="formGroupExampleInput">Title</label>
-                            <input type="text" class="form-control new-recipe-input" id="recipe-title" placeholder="Ramen with Egg"> </div>
-                        <div class="form-group">
-                            <label for="formGroupExampleInput">Cuisine</label>
-                            <input type="text" class="form-control new-recipe-input" id="cuisine-type" placeholder="Italian, Mexican, Chinese"> </div>
-                        <div class="form-group">
-                            <label for="formGroupExampleInput">Ingredients</label>
-                            <input type="text" class="form-control new-recipe-input" id="recipe-ingredients" placeholder="Noodles"> </div>
-                        <div class="form-group">
-                            <button type="submit" class="btn btn-primary" id="add-recipe-ingredient">Add Ingredient</button>
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleTextarea">Instructions</label>
-                            <textarea class="form-control new-recipe-input" id="instructions" rows="3"></textarea>
-                        </div>
-                        <div class="form-group">
-                            <button type="submit" class="btn btn-primary" id="add-recipe2">Submit Recipe</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
     <script type="text/javascript" src="assets/logic/logic.js"></script>
     <script type="text/javascript" src="assets/logic/test.js"></script>
-<!--    <script type="text/javascript" src="assets/logic/ingredients.js"></script>-->
-<!--    <script type="text/javascript" src="assets/logic/drag-drop.js"></script>-->
-
+    <!--    <script type="text/javascript" src="assets/logic/ingredients.js"></script>-->
+    <!--    <script type="text/javascript" src="assets/logic/drag-drop.js"></script>-->
 </body>
 
 </html>
