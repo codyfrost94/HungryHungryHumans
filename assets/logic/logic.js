@@ -69,6 +69,7 @@
  });
 
  var user = {}
+ var ohShit = false;
  // Add a realtime Listener
 
  firebase.auth().onAuthStateChanged(firebaseUser => {
@@ -85,6 +86,8 @@
              $("#btnSignUp").addClass('hide');
              $("#txtEmail").addClass('hide');
              $("#txtPassword").addClass('hide');
+
+             ohShit = true;
 
 
 //DRAGGABLE STUFF + ARRAY/////////////////////////////////////////////////////////
