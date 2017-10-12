@@ -25,6 +25,7 @@
      // Sign in
      const promise = auth.signInWithEmailAndPassword(email, pass);
      promise.catch(e => console.log(e.message));
+     promise.catch(e => alert(e.message));
 
 
 
@@ -42,8 +43,8 @@
 
      // Sign in
      const promise = auth.createUserWithEmailAndPassword(email, pass);
-     promise
-         .catch(e => console.log(e.message));
+       promise.catch(e => console.log(e.message));
+       promise.catch(e => alert(e.message));
 
      var user = firebase.auth();
      console.log("uid " + user.currentUser.uid);
@@ -74,12 +75,17 @@
 
      if (firebaseUser) {
          firebase.database().ref('Users/' + firebaseUser.uid + '/ingrArray').on('value', function(snapshot) {
-             console.log(snapshot.val())
+             console.log("user" + snapshot.val())
              user = snapshot.val();
 
              console.log("I am logged in now");
 
-             btnLogout.classList.remove('hide');
+             // Disableing login & sign-up button as well as log-in forms when signed-in
+             $("#btnLogin").addClass('hide');
+             $("#btnSignUp").addClass('hide');
+             $("#txtEmail").addClass('hide');
+             $("#txtPassword").addClass('hide');
+
 
 //DRAGGABLE STUFF + ARRAY/////////////////////////////////////////////////////////
  $(function() {
@@ -107,6 +113,16 @@
  });
 //DRAGGABLE STUFF + ARRAY/////////////////////////////////////////////////////////
 
+             // enabling logout button when signed-in
+             $("#btnLogout").removeClass('hide');
+
+             // adding message "Welcome user x" when user is logged-in
+             $("#userName").removeClass('hide');
+
+
+
+
+
 })
 
 
@@ -115,6 +131,19 @@
      } else {
          console.log("not logged in");
          btnLogout.classList.remove('hide');
+
+
+          // Enabling login & sign-up button as well as log-in forms when signed-out
+             $("#btnLogin").removeClass('hide');
+             $("#btnSignUp").removeClass('hide');
+             $("#txtEmail").removeClass('hide');
+             $("#txtPassword").removeClass('hide');
+
+             // disabling logout button when signed-in
+             $("#btnLogout").addClass('hide');
+
+            // Disabling message "Welcome user x" when user is logged-in
+             $("#userName").addClass('hide');
 
 
          $(function() {
