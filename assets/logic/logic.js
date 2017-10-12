@@ -43,8 +43,8 @@
 
      // Sign in
      const promise = auth.createUserWithEmailAndPassword(email, pass);
-       promise.catch(e => console.log(e.message));
-       promise.catch(e => alert(e.message));
+     promise.catch(e => console.log(e.message));
+     promise.catch(e => alert(e.message));
 
      var user = firebase.auth();
      console.log("uid " + user.currentUser.uid);
@@ -69,10 +69,15 @@
  });
 
  var user = {}
- var ohShit = false;
+ var ohShit;
 
  $("#btnLogin").on("click", function() {
-    ohShit = true;
+     ohShit = true;
+ });
+
+ $("#btnLogout").on("click", function() {
+
+     window.location.href = "index.html";
  });
  // Add a realtime Listener
 
@@ -91,36 +96,38 @@
              $("#txtEmail").addClass('hide');
              $("#txtPassword").addClass('hide');
 
-             if (ohShit){
-                window.location.href = "main.html";
+             if (ohShit) {
+                 window.location.href = "main.html";
              }
 
 
-//DRAGGABLE STUFF + ARRAY/////////////////////////////////////////////////////////
- $(function() {
-     $(".draggable").draggable({
-         revert: "invalid"
-     });
-     
-	 var searchableIngr = [];
-     
-	 $(".list-item").one("mouseup", function(event) {
-         var text = $(this).text();
-         searchableIngr.push(text);
-         console.log(searchableIngr);
-		 $(".droppable").append('<p class="list-item">' + text + '</p>');
-     });
-     
-	 $(".droppable").droppable({
-         drop: function(event, ui) {
-             ui.draggable.remove();
-             $(this).height(function(index, height) {
-                 return (height + 30);
+
+
+             //DRAGGABLE STUFF + ARRAY/////////////////////////////////////////////////////////
+             $(function() {
+                 $(".draggable").draggable({
+                     revert: "invalid"
+                 });
+
+                 var searchableIngr = [];
+
+                 $(".list-item").one("mouseup", function(event) {
+                     var text = $(this).text();
+                     searchableIngr.push(text);
+                     console.log(searchableIngr);
+                     $(".droppable").append('<p class="list-item">' + text + '</p>');
+                 });
+
+                 $(".droppable").droppable({
+                     drop: function(event, ui) {
+                         ui.draggable.remove();
+                         $(this).height(function(index, height) {
+                             return (height + 30);
+                         });
+                     }
+                 });
              });
-         }
-     });
- });
-//DRAGGABLE STUFF + ARRAY/////////////////////////////////////////////////////////
+             //DRAGGABLE STUFF + ARRAY/////////////////////////////////////////////////////////
 
              // enabling logout button when signed-in
              $("#btnLogout").removeClass('hide');
@@ -132,40 +139,37 @@
 
 
 
-})
+         })
 
 
 
          btnLogout.classList.remove('hide');
-     } 
-	 
- 
-	 else {
+     } else {
          console.log("not logged in");
          btnLogout.classList.remove('hide');
 
 
-          // Enabling login & sign-up button as well as log-in forms when signed-out
-             $("#btnLogin").removeClass('hide');
-             $("#btnSignUp").removeClass('hide');
-             $("#txtEmail").removeClass('hide');
-             $("#txtPassword").removeClass('hide');
+         // Enabling login & sign-up button as well as log-in forms when signed-out
+         $("#btnLogin").removeClass('hide');
+         $("#btnSignUp").removeClass('hide');
+         $("#txtEmail").removeClass('hide');
+         $("#txtPassword").removeClass('hide');
 
-             // disabling logout button when signed-in
-             $("#btnLogout").addClass('hide');
+         // disabling logout button when signed-in
+         $("#btnLogout").addClass('hide');
 
-            // Disabling message "Welcome user x" when user is logged-in
-             $("#userName").addClass('hide');
+         // Disabling message "Welcome user x" when user is logged-in
+         $("#userName").addClass('hide');
 
 
          $(function() {
-                 $(".draggable").draggable( "disable")
-                     
-                         //          .addClass( "ui-state-highlight" )
-                         //          .find( "p" )
-                         //            .html( "Dropped!" );
-                       })
-              
+             $(".draggable").draggable("disable")
+
+             //          .addClass( "ui-state-highlight" )
+             //          .find( "p" )
+             //            .html( "Dropped!" );
+         })
+
      }
      var uid = firebaseUser.uid;
      pushedRef = firebase.database().ref('Users/' + uid).set({
@@ -175,5 +179,3 @@
 
 
  })
-
-
