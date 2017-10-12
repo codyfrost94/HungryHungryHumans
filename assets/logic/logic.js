@@ -70,6 +70,10 @@
 
  var user = {}
  var ohShit = false;
+
+ $("#btnLogin").on("click", function() {
+    ohShit = true;
+ });
  // Add a realtime Listener
 
  firebase.auth().onAuthStateChanged(firebaseUser => {
@@ -87,7 +91,9 @@
              $("#txtEmail").addClass('hide');
              $("#txtPassword").addClass('hide');
 
-             ohShit = true;
+             if (ohShit){
+                window.location.href = "main.html";
+             }
 
 
 //DRAGGABLE STUFF + ARRAY/////////////////////////////////////////////////////////
