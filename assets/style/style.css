@@ -14,6 +14,13 @@ h1 {
     padding-left: 5px;
 }
 
+#userName {
+	padding-left: 5px;
+	font-family: 'Poppins';
+	color: black;
+	font-weight: 600;
+}
+
 .bot-left {
   position: relative;
 }
