@@ -128,7 +128,10 @@
 
 
          btnLogout.classList.remove('hide');
-     } else {
+     } 
+	 
+ 
+	 else {
          console.log("not logged in");
          btnLogout.classList.remove('hide');
 
@@ -163,3 +166,5 @@
 
 
  })
+
+

@@ -1,7 +1,7 @@
- $(document).ready(function() {
-     $(".delete-btn-1").hide();
-     $(".delete-btn-2").hide();
- });
+// $(document).ready(function() {
+//     $(".delete-btn-1").hide();
+//     $(".delete-btn-2").hide();
+// });
 
 
  var database = firebase.database();
