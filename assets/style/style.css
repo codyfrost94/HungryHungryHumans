@@ -1,6 +1,7 @@
 body {
     background-image: url(../images/hhh-bkgd-2.png);
-    background-color: white;
+	background-repeat: no-repeat;
+    background-color: #eeebe7;
 }
 
 h1 {
@@ -11,6 +12,13 @@ h1 {
     background: linear-gradient(to left, transparent, white);
     width: 130%;
     padding-left: 5px;
+}
+
+#userName {
+	padding-left: 5px;
+	font-family: 'Poppins';
+	color: black;
+	font-weight: 600;
 }
 
 .bot-left {
@@ -57,7 +65,7 @@ h5 {
 
 img {
 margin-left: 50%;
-	width: 7vw;
+	width: 6.5vw;
 }
 
 .panel {
