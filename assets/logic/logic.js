@@ -86,29 +86,39 @@
              $("#txtEmail").addClass('hide');
              $("#txtPassword").addClass('hide');
 
+
+//DRAGGABLE STUFF + ARRAY/////////////////////////////////////////////////////////
+ $(function() {
+     $(".draggable").draggable({
+         revert: "invalid"
+     });
+     
+	 var searchableIngr = [];
+     
+	 $(".list-item").one("mouseup", function(event) {
+         var text = $(this).text();
+         searchableIngr.push(text);
+         console.log(searchableIngr);
+		 $(".droppable").append('<p class="list-item">' + text + '</p>');
+     });
+     
+	 $(".droppable").droppable({
+         drop: function(event, ui) {
+             ui.draggable.remove();
+             $(this).height(function(index, height) {
+                 return (height + 30);
+             });
+         }
+     });
+ });
+//DRAGGABLE STUFF + ARRAY/////////////////////////////////////////////////////////
+
              // enabling logout button when signed-in
              $("#btnLogout").removeClass('hide');
 
              // adding message "Welcome user x" when user is logged-in
              $("#userName").removeClass('hide');
 
-             //enables drag and drop only when logged-in
-             $(function() {
-                 $(".draggable").draggable({
-                     grid: [10, 10],
-                     revert: "invalid"
-                 });
-                 $(".droppable").droppable({
-                     drop: function(event, ui) {
-                         $(this).height(function(index, height) {
-                             return (height + 40);
-                         });
-                         //          .addClass( "ui-state-highlight" )
-                         //          .find( "p" )
-                         //            .html( "Dropped!" );
-                       }
-                    });
-                  });
 
 
 
