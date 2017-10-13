@@ -28,16 +28,16 @@
 
      event.preventDefault();
 
-     var recipeName = $("#recipe-title").val().trim();
+     var recipeName = $("#create-recipe-title").val().trim();
      var recipeInstructions = $("#instructions").val().trim();
-     var recipeCuisine = $("#cuisine-type").val().trim();
+     var recipeCuisine = $("#create-cuisine-type").val().trim();
 
      console.log("Ingredients: " + tempIngr);
 
      var newRecipe = {
          name: recipeName,
          cuisine: recipeCuisine,
-         ingredients: tempIngr,
+         ingredients: searchableIngr,
          instructions: recipeInstructions,
      }
 
@@ -45,7 +45,7 @@
 
      $("#recipe-title").val("");
      $("#instructions").val("");
-     tempIngr = []
+     searchableIngr = []
      $("#cuisine-type").val("");
 
 
