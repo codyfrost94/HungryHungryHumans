@@ -22,10 +22,10 @@
         <div class="row">
             <div class="col-md-4 col-xs-3">
                 <h1 class="bot-left">Hungry Hungry<br>Humans</h1></div>
-			<div class="col-md-2 col-xs-3">
-				<br>
-			<img src="assets/images/plate-utensil-logo-1.png" alt="Logo">
-			</div>
+            <div class="col-md-2 col-xs-3">
+                <br>
+                <img src="assets/images/plate-utensil-logo-1.png" alt="Logo">
+            </div>
             <div class="col-md-6">
                 <div class="login-div">
                     <br>
@@ -44,7 +44,7 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="panel panel-primary">
-                    <div class="panel-heading">Find a recipe!</div>
+                    <div class="panel-heading">Find a Recipe!</div>
                     <div class="panel-body">
                         <div class="form-group">
                             <label for="formGroupExampleInput">Title</label>
@@ -53,20 +53,18 @@
                             <label for="formGroupExampleInput">Cuisine</label>
                             <input type="text" class="form-control new-recipe-input" id="cuisine-type" placeholder="Italian, Mexican, Chinese"> </div>
                         <div class="form-group">
-                            <label for="formGroupExampleInput">Search Ingredients</label><div class="col-md">
-                            <div class="border-around droppable-1">
-                                <h5>What's In Your Pantry:</h5>
-                                <!-- <form id="add-ingredient"> <input type="text" id="user-ingredient" class="mb-3"> <input type="submit" value="Save" id="save-ingr-item"> </form> <br>-->
-                                <div id="ingredients">
-                                    <ul id="ingredient-list"></ul>
-                                    <br>
+                            <label for="formGroupExampleInput">Search Ingredients</label>
+                            <div class="col-md">
+                                <div class="border-around droppable-1">
+                                    <h5>What's In Your Pantry:</h5>
+                                    <!-- <form id="add-ingredient"> <input type="text" id="user-ingredient" class="mb-3"> <input type="submit" value="Save" id="save-ingr-item"> </form> <br>-->
+                                    <div id="ingredients">
+                                        <ul id="ingredient-list"></ul>
+                                        <br>
+                                    </div>
                                 </div>
                             </div>
-                        </div>                        
                         </div>
-                        
-                        
-                        
                         <div class="col-md-12">
                             <button type="submit" class="btn btn-primary mt-3" id="add-recipe">Search Recipes</button>
                         </div>
@@ -81,7 +79,6 @@
                         <div class="form-group">
                             <label for="formGroupExampleInput">Cuisine</label>
                             <input type="text" class="form-control new-recipe-input" id="create-cuisine-type" placeholder="Italian, Mexican, Chinese"> </div>
-                        
                         <div class="form-group">
                             <label for="exampleTextarea">Add Ingredients</label>
                             <div class="border-around droppable-2">
@@ -92,6 +89,10 @@
                                     <br>
                                 </div>
                             </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleTextarea">Instructions</label>
+                            <textarea class="form-control new-recipe-input" id="instructions" rows="3"></textarea>
                         </div>
                         <div class="form-group">
                             <button type="submit" class="btn btn-primary" id="add-recipe2">Submit Recipe</button>
@@ -111,8 +112,22 @@
                         </div>
                     </div>
                 </div>
+                <div class="panel panel-primary hidden" id = "search-results">
+                    <div class="panel-heading">Search Results</div>                       
+                        <div class="panel-body" id="display-results-panel">
+                            <!-- <div class="panel panel-primary"> -->
+                            <!-- <div id="preset-ingr">
+                                <p id="noodles" class="draggable list-item">Noodles</p>
+                                <p id="bananas" class="draggable list-item">Bananas</p>
+                                <p id="ketchup" class="draggable list-item">Ketchup</p>
+                                <p id="butter" class="draggable list-item">Butter</p>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
+    </div>
     </div>
     <script type="text/javascript" src="assets/logic/logic.js"></script>
     <script type="text/javascript" src="assets/logic/test.js"></script>

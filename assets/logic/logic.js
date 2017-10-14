@@ -81,6 +81,8 @@
  });
  // Add a realtime Listener
 
+ var searchableIngr = [];
+
  firebase.auth().onAuthStateChanged(firebaseUser => {
 
      if (firebaseUser) {
@@ -104,32 +106,33 @@
 
 
              //DRAGGABLE STUFF + ARRAY/////////////////////////////////////////////////////////
- $(function() {
-     $(".draggable").draggable({
-         revert: "invalid"
-     });
-     var searchableIngr = [];
-     $(".list-item").on("mouseup", function(event) {
-         var text = $(this).text();
-         searchableIngr.push(text);
-         console.log(searchableIngr);
-     });
-//     var searchableIngr2 = [];
-     $(".droppable-1, .droppable-2").on("drop", function(event) {
-         $(this).append('<p class="list-item">' + searchableIngr[searchableIngr.length - 1] + '</p>');
-//         var text = $(this).find(".list-item").text();
-//         searchableIngr2.push(text);
-//         console.log(searchableIngr2);
-     });
-     $(".droppable-1, .droppable-2").droppable({
-         drop: function(event, ui) {
-             ui.draggable.remove();
-             $(this).height(function(index, height) {
-                 return (height + 30);
+             
+             $(function() {
+                 $(".draggable").draggable({
+                     revert: "invalid"
+                 });
+
+                 $(".list-item").on("mouseup", function(event) {
+                     var text = $(this).text();
+                     searchableIngr.push(text);
+                     console.log(searchableIngr);
+                 });
+                 //     var searchableIngr2 = [];
+                 $(".droppable-1, .droppable-2").on("drop", function(event) {
+                     $(this).append('<p class="list-item">' + searchableIngr[searchableIngr.length - 1] + '</p>');
+                     //         var text = $(this).find(".list-item").text();
+                     //         searchableIngr2.push(text);
+                     //         console.log(searchableIngr2);
+                 });
+                 $(".droppable-1, .droppable-2").droppable({
+                     drop: function(event, ui) {
+                         ui.draggable.remove();
+                         $(this).height(function(index, height) {
+                             return (height + 30);
+                         });
+                     }
+                 });
              });
-         }
-     });
- });
              //DRAGGABLE STUFF + ARRAY/////////////////////////////////////////////////////////
 
              // enabling logout button when signed-in

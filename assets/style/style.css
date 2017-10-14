@@ -51,7 +51,7 @@ h1 {
 }
 
 h5 {
-    color: #000000;
+    color: black;
 }
 
 .container {
@@ -133,4 +133,13 @@ li {
 
 .droppable {
     height: 100px;
+}
+
+.instr-p {
+  color:black;
+}
+
+#search-results {
+  max-height: 770px;
+  overflow:auto;
 }
