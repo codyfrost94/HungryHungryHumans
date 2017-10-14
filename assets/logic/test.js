@@ -69,7 +69,8 @@
 
  function apiCall() {
      var q = $("#recipe-title").val().trim();
-     var queryURL = "http://api.yummly.com/v1/api/recipes?_app_id=d930995b&_app_key=0478f2c3ea2c7a5234c78816e1d521c2&q=" + q
+     var queryURL = "https://api.yummly.com/v1/api/recipes?_app_id=d930995b&_app_key=0478f2c3ea2c7a5234c78816e1d521c2&q=" + q + "&maxResult=10&start=10"
+     var displayDiv = $("#display-results-panel");
 
      $.ajax({
          url: queryURL,
@@ -89,6 +90,28 @@
              console.log(rIngredients);
              console.log(rCourse);
              console.log(rCuisine);
+
+             var newDiv = $("<div class='panel panel-primary result'>");
+             var nameDiv = $("<div class = 'panel-heading'>");
+             var bodyDiv = $("<div class='panel-body'>");
+             var cuisineDiv = $("<h5>");
+             var ingrDiv = $("<div>");
+
+             cuisineDiv.text("Cuisine: " + rCuisine);
+
+             for (i=0; i<rIngredients.length;i++) {
+             	var singleIngr = $("<p>");
+             	singleIngr.text(rIngredients[i]);
+             	ingrDiv.append(singleIngr);
+             }
+
+             nameDiv.text(rName);
+
+             bodyDiv.append(cuisineDiv, ingrDiv);
+             newDiv.append(nameDiv, bodyDiv);
+             displayDiv.append(newDiv);
+
+
 
 
 

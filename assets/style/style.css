@@ -143,3 +143,7 @@ li {
   max-height: 770px;
   overflow:auto;
 }
+
+.result {
+  overflow:auto;
+}
